@@ -24,6 +24,14 @@ namespace Microsoft.AspNetCore.Builder
             var options = new BeatPulseOptions();
             setup?.Invoke(options);
 
+            if (options.EnableMetadata)
+            {
+                app.Map($"/{BeatPulseKeys.BEATPULSE_METADATA_ENDPOINT}", appBuilder =>
+                {
+                    app.UseMiddleware<BeatPulseMetadataMiddleware>();
+                });
+            }
+
             app.MapWhen(context => context.IsBeatPulseRequest(options), appBuilder =>
             {
                 usePipeline(appBuilder);

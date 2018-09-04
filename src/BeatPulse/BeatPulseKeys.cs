@@ -11,6 +11,7 @@
         internal const string BEATPULSE_PATH_SEGMENT_NAME = "segment";
         internal const string BEATPULSE_INVALIDPATH_REASON = "Invalid BeatPulse path.";
         internal const string BEATPULSE_TIMEOUT_MESSAGE = "Timeout";
+        internal const string BEATPULSE_METADATA_ENDPOINT = ".beatpulse/metadata";
         internal const string BEATPULSE_SERVICEUNAVAILABLE_REASON = "One or more liveness return a service unavailable result.";
     }
 }

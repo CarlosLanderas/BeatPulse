@@ -13,6 +13,7 @@ namespace BeatPulse
         internal int CacheDuration { get; private set; }
 
         internal bool CacheOutput { get; private set; }
+        internal bool EnableMetadata { get; private set; } = true;
 
         internal CacheMode CacheMode { get; private set; }
 
@@ -38,6 +39,13 @@ namespace BeatPulse
         public BeatPulseOptions ConfigureDetailedOutput(bool detailedOutput = true)
         {
             DetailedOutput = detailedOutput;
+
+            return this;
+        }
+
+        public BeatPulseOptions EnableMetadataEndpoint(bool enableMetadata)
+        {
+            EnableMetadata = enableMetadata;
 
             return this;
         }

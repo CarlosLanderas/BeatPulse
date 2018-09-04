@@ -24,6 +24,14 @@ namespace BeatPulse
                     appBuilder.UseMiddleware<BeatPulseMiddleware>(_options);
                 });
 
+                if (_options.EnableMetadata)
+                {
+                    builder.Map($"/{BeatPulseKeys.BEATPULSE_METADATA_ENDPOINT}", appBuilder =>
+                    {
+                        appBuilder.UseMiddleware<BeatPulseMetadataMiddleware>(_options);
+                    });
+                }
+
                 next(builder);
             };
         }
